@@ -1,0 +1,53 @@
+.TH _shell(1) "May 15,  2022" "_shell man page"
+
+.SH NAME
+-hsh \- shell, the standard command language interpreter.
+
+.SH SYNOPSIS
+.LP
+sh [abCefhimnuvx] [o option]... [+abCefhimnuvx] [+o option]...
+           [command_file [argument...]]
+
+.SH DESCRIPTION
+.B
+The sh utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
+
+.LP
+.IP 
+Overview 
+The shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands. The shell implements a language that has flow control constructs, a macro facility that provides a variety of features in addition to data storage, along with built in history and line editing capabilities. It incorporates many features to aid interactive use and has the advantage that the interpretative language is common to both interactive and non-interactive use (shell scripts). That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell.
+
+.LP
+.IP Invocation
+If no args are present and if the standard input of the shell is connected to a terminal, the shell is considered an interactive shell. An interactive shell generally prompts before each command and handles programming and command errors differently.
+
+.LP
+.IP Lexical Structure
+The shell reads input in terms of lines from a file and breaks it up into words at whitespace (blanks and tabs), and at certain sequences of characters that are special to the shell called operators.  There are two types of operators: control operators and redirection operators.  Following is a list of operators:
+
+.LP
+.IP Quoting
+ Quoting is used to remove the special meaning of certain characters or words to the shell, such as operators, whitespace, or keywords.
+
+.LP
+.IP Commands
+The shell interprets the words it reads according to a language, the specification of which is outside the scope of this man page (refer to the BNF in the POSIX 1003.2 document).  Essentially though, a line is read and if the first word of the line (or after a control operator) is not a reserved word, then the shell has recognized a simple command.  Otherwise, a complex command or some other special construct may have been recognized.
+
+.LP
+.SH EXAMPLES
+.RE
+$ ls
+.LP
+main.c    README.md     library.h     helpFunctions.c     builtinsFunctions.c
+.LP
+pwd
+.LS
+/home/vagrant//hbn/Shell
+.LP
+.SH EXIT STATUS
+Errors that are detected by the shell, such as a syntax error, will cause the shell to exit with a non-zero exit status.  If the shell is not an interactive shell, the execution of the shell file will be aborted.  Otherwise the shell will return the exit status of the last command executed, or if the exit builtin is used with a numeric argument, it will return the argument.
+
+.LP
+.SH AUTHORS
+Kelvin Wainaina and Christabel.
+
